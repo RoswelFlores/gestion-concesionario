@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="static/css/index.css"
+	th:href="@{/css/index2.css}">
+</head>
+<title>Agregar Entrega</title>
+</head>
+<body class="container">
+	<nav class="navbar navbar-expand-lg navbar-light ">
+		<div class="container-fluid">
+			<a class="navbar-brand" th:href="@{/}"><img class="img-fluid"
+				th:src="@{/img/logo.jfif}"></img></a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</div>
+
+	</nav>
+
+
+	<div class="container">
+		<h1>Datos de los Vehiculos</h1>
+		<a th:href="@{/admin/index}" class="btn btn-secondary">Regresar</a>
+		<br />
+		<form th:action="@{/guardar}" method="post" th:object="${vehiculo}"
+			name="form">
+			<div class="mb-3">
+				<label for="id" class="form-label">ID</label> <input
+					class="form-control" type="text" readonly name="id"
+					th:field="*{id}">
+			</div>
+			<div class="mb-3">
+				<label for="stock" class="form-label">Numero de Stock</label> <input
+					type="number" class="form-control" th:field="*{stock}" name="stock"
+					required>
+				<div th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"
+					class="alert alert-danger"></div>
+			</div>
+			<div class="mb-3">
+				<label for="marca" class="form-label">Marca</label> <input
+					type="text" class="form-control" th:field="*{marca}" name="marca"
+					required>
+				<div th:if="${#fields.hasErrors('marca')}" th:errors="*{marca}"
+					class="alert alert-danger"></div>
+			</div>
+			<div class="mb-3">
+				<label for="modelo" class="form-label">Modelo</label> <input
+					type="text" class="form-control" th:field="*{modelo}" name="modelo"
+					required>
+				<div th:if="${#fields.hasErrors('modelo')}" th:errors="*{modelo}"
+					class="alert alert-danger"></div>
+			</div>
+			<div class="mb-3">
+				<label for="color" class="form-label">Color</label> <input
+					type="text" class="form-control" th:field="*{color}" name="color"
+					required>
+				<div th:if="${#fields.hasErrors('color')}" th:errors="*{color}"
+					class="alert alert-danger"></div>
+			</div>
+			<div class="mb-3">
+				<label for="Fecha_entrega" class="form-label">Fecha Entrega</label>
+				<input type="date" class="form-control" th:field="*{Fecha_entrega}"
+					name="fecha_entrega" required>
+				<div th:if="${#fields.hasErrors('Fecha_entrega')}"
+					th:errors="*{Fecha_entrega}" class="alert alert-danger"></div>
+			</div>
+			<div class="d-grid gap-2 d-md-block">
+				<button type="submit" name="guardar" value="guardar"
+					class="btn btn-outline-primary">Enviar</button>
+			</div>
+
+		</form>
+	</div>
+</body>
+</html>

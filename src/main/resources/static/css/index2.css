@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap');
+body{
+    background: url(../img/logo.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+button{
+    width: 100%;
+    margin: 5px 0 25px;
+}
+
+td{
+	color:#050000  ;
+	font-family: 'Roboto Slab', serif;
+}
